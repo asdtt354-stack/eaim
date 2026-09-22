@@ -60,4 +60,257 @@
 
   /* ── 표지 ── */
   header.hero{padding:86px 0 70px}
-  header.hero
+  header.hero .eyebrow{font-size:.84rem;font-weight:800;color:var(--soft);letter-spacing:.1em;margin:0 0 16px}
+  header.hero h1{margin:0;font-size:clamp(2.1rem,6.4vw,3.15rem);line-height:1.28;letter-spacing:-.035em;font-weight:800}
+  header.hero h1 em{font-style:normal;color:var(--e)}
+  header.hero .lead{margin:22px 0 0;font-size:1.08rem;color:var(--soft);max-width:33em}
+
+  .four{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin-top:42px}
+  .four div{padding:16px 13px;background:#fff;border:1px solid var(--line);border-radius:14px;
+    border-top:3px solid var(--line)}
+  .four .k{font-size:.76rem;font-weight:800;letter-spacing:.06em;color:var(--soft)}
+  .four .v{font-weight:800;font-size:1.02rem;margin-top:3px}
+  .four div:nth-child(1){border-top-color:var(--e)} .four div:nth-child(1) .v{color:var(--e)}
+  .four div:nth-child(2){border-top-color:var(--a)} .four div:nth-child(2) .v{color:var(--a)}
+  .four div:nth-child(3){border-top-color:var(--i)} .four div:nth-child(3) .v{color:var(--i)}
+  .four div:nth-child(4){border-top-color:var(--m)} .four div:nth-child(4) .v{color:var(--m)}
+
+  /* ── 절 ── */
+  section{padding:62px 0;border-top:1px solid var(--line)}
+  h2{font-size:1.42rem;letter-spacing:-.025em;margin:0 0 8px;font-weight:800}
+  .sub{color:var(--soft);margin:0 0 30px;font-size:.96rem}
+  p{margin:0 0 16px}
+
+  /* ── 규모 ── */
+  .scale{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:0 0 30px;
+    background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .scale div{padding:18px 14px;border-left:1px solid var(--line)}
+  .scale div:first-child{border-left:0}
+  .scale .n{font-weight:800;font-size:1.34rem;letter-spacing:-.03em;line-height:1.2}
+  .scale .l{font-size:.78rem;color:var(--soft);margin-top:4px;line-height:1.45}
+
+  /* ── 플랫폼 카드 ── */
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:13px}
+  .card{display:block;text-decoration:none;background:#fff;border:1px solid var(--line);
+    border-radius:16px;padding:20px;transition:transform .15s,box-shadow .15s,border-color .15s}
+  .card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(120,90,60,.09)}
+  .card .tag{font-size:.72rem;font-weight:800;letter-spacing:.05em;color:var(--soft)}
+  .card .nm{font-weight:800;font-size:1.06rem;margin:5px 0 5px;letter-spacing:-.02em}
+  .card .ds{font-size:.88rem;color:var(--soft);line-height:1.6}
+  .card .apps{font-size:.8rem;color:var(--soft);line-height:1.65;margin-top:12px;
+    padding-top:11px;border-top:1px solid var(--line)}
+  .card .apps b{font-weight:700;color:var(--ink)}
+  .card.e:hover{border-color:var(--e)} .card.e .tag{color:var(--e)}
+  .card.a:hover{border-color:var(--a)} .card.a .tag{color:var(--a)}
+  .card.i:hover{border-color:var(--i)} .card.i .tag{color:var(--i)}
+  .card.m:hover{border-color:var(--m)} .card.m .tag{color:var(--m)}
+
+  /* ── 소개 ── */
+  .facts{list-style:none;padding:0;margin:0}
+  .facts li{padding:11px 0;border-bottom:1px solid var(--line);display:flex;gap:16px;font-size:.96rem}
+  .facts li b{flex:0 0 92px;color:var(--soft);font-weight:700;font-size:.88rem;padding-top:2px}
+  .quote{border-left:3px solid var(--e);padding:4px 0 4px 18px;margin:26px 0;color:var(--soft);font-size:1.02rem}
+
+  footer{padding:46px 0 70px;border-top:1px solid var(--line);color:var(--soft);font-size:.88rem}
+  footer a{color:var(--soft)}
+  footer p{margin:0 0 8px}
+
+  @media(max-width:560px){
+    .four{grid-template-columns:repeat(2,1fr)}
+    .scale{grid-template-columns:repeat(2,1fr)}
+    .scale div:nth-child(3){border-left:0}
+    .scale div:nth-child(n+3){border-top:1px solid var(--line)}
+    nav ul{gap:14px;font-size:.85rem}
+    header.hero{padding:56px 0 46px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .card{transition:none}
+    .card:hover{transform:none}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="logo">EAIM<small>에임</small></span>
+    <ul>
+      <li><a href="#what">EAIM</a></li>
+      <li><a href="#platforms">수업 플랫폼</a></li>
+      <li><a href="#about">소개</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">EMOTION · ARTSCAPE · INTERACTIVE · MUSICALIZATION</p>
+    <h1>느끼고, 표현하고,<br>주고받고, <em>노래가 되는</em> 수업</h1>
+    <p class="lead">
+      22년에 걸쳐 교실에서 만들어온 교육철학 에임(EAIM)과,
+      그 철학으로 실제 수업에서 쓰이고 있는 교과 플랫폼 에임에듀입니다.
+    </p>
+
+    <div class="four">
+      <div><div class="k">EMOTION</div><div class="v">감성</div></div>
+      <div><div class="k">ARTSCAPE</div><div class="v">예술</div></div>
+      <div><div class="k">INTERACTIVE</div><div class="v">상호작용</div></div>
+      <div><div class="k">MUSICALIZATION</div><div class="v">음악화</div></div>
+    </div>
+  </div>
+</header>
+
+<section id="what">
+  <div class="wrap">
+    <h2>에임(EAIM)이란</h2>
+    <p class="sub">교실에서 출발해 교실로 돌아오는 네 가지 축</p>
+
+    <p>
+      아이가 먼저 <b>느끼고(Emotion)</b>, 그 느낌을 자기 방식으로 <b>표현하고(Artscape)</b>,
+      표현한 것을 다른 사람과 <b>주고받고(Interactive)</b>, 그 과정이 하나의
+      <b>노래처럼 남는 것(Musicalization)</b>. 이 네 가지가 한 수업 안에서 이어질 때
+      배움이 오래 남는다고 봅니다.
+    </p>
+    <p>
+      그래서 여기 있는 앱들은 지식을 전달하는 도구가 아니라,
+      아이가 무언가를 만들어 내놓고 그것이 누군가에게 가닿게 하는 자리로 만들어졌습니다.
+    </p>
+
+    <blockquote class="quote">
+      기술이 아니라 아이가 먼저입니다. 화면이 해줄 수 있는 일과
+      아이가 직접 해야 하는 일을 가르는 것이 설계의 첫 단계입니다.
+    </blockquote>
+  </div>
+</section>
+
+<section id="platforms">
+  <div class="wrap">
+    <h2>에임에듀 수업 플랫폼</h2>
+    <p class="sub">교사 계정으로 수업방을 열고, 학생은 QR로 들어옵니다. 모두 무료입니다.</p>
+
+    <div class="scale">
+      <div><div class="n">9</div><div class="l">교과 플랫폼</div></div>
+      <div><div class="n">65</div><div class="l">수업 앱</div></div>
+      <div><div class="n">353</div><div class="l">교과 학습 콘텐츠</div></div>
+      <div><div class="n">526</div><div class="l">웹 화면</div></div>
+    </div>
+
+    <div class="cards">
+      <a class="card m" href="https://eaim-music.vercel.app" target="_blank" rel="noopener">
+        <div class="tag">음악</div>
+        <div class="nm">음악과 플랫폼</div>
+        <div class="ds">네 갈래로 갈라집니다. 대본부터 상영·홍보·평론까지 만드는 프로덕션, 감상을 그림·신문·편지로 남기는 미디어레터, 건반·밴드·리듬·관악·솔페지오 등 여덟 개 방을 갖춘 연주실, 우리 악기를 나눠 맡아 합주하는 국악실. 교사 가이드와 성취기준·루브릭까지.</div>
+        <div class="apps">
+          <b>프로덕션</b> 뮤지컬 메이커, 공연 상영관, 오디오 믹서, 홍보 포스터, 공연 평론<br>
+          <b>미디어레터</b> 미디어픽쳐, 감상 상영관<br>
+          <b>연주실</b> 건반실, 짝꿍 피아노실, 즉흥 작곡실, 이야기 작곡실, 밴드실, 리듬실, 솔페지오실, 관악실, 교사실<br>
+          <b>국악실</b> 대취타 합주 · <b>합주</b> 오케스트라
+        </div>
+      </a>
+
+      <a class="card i" href="https://eaim-science-lap.vercel.app" target="_blank" rel="noopener">
+        <div class="tag">과학</div>
+        <div class="nm">과학 놀이터</div>
+        <div class="ds">인체 기관계 지도, 토양층·바다층 탐사, 천문대 관측소. 중등과학 1·2 전 단원 인터랙티브와 자기점검실.</div>
+        <div class="apps">인체 탐험대, 지구 탐구, 천문대 관측소, 태양계 오디세이, 생활과학 공감톡, 생물 조직 단계, 과학 활동지</div>
+      </a>
+
+      <a class="card a" href="https://eaim-math.vercel.app" target="_blank" rel="noopener">
+        <div class="tag">수학</div>
+        <div class="nm">MATH LAB</div>
+        <div class="ds">낙하형 연산 퍼즐, 두더지, 카드 짝맞추기, 몬스터 배틀 등 연산 게임과 서술형 풀이 제출.</div>
+        <div class="apps">연산 테트리스, 연산 배틀, 연산 캐치, 두더지 잡기, 카드 짝맞추기, 수학 이야기 1~8, 교사 대시보드, 수학 활동지</div>
+      </a>
+
+      <a class="card e" href="https://eaim-social-history.vercel.app" target="_blank" rel="noopener">
+        <div class="tag">사회 · 역사</div>
+        <div class="nm">사회·역사 플랫폼</div>
+        <div class="ds">역사신문 만들기, 사회 용어사전, 세계 탐구, 실시간 용어 게임. 사회1·2, 역사1·2 전 단원 형성평가와 교사 대시보드까지.</div>
+        <div class="apps">역사 신문, 사회 용어사전, 사회 게임방, 세계 나라 탐구, 실시간 퀴즈 진행</div>
+      </a>
+
+      <a class="card e" href="https://eaim-english.vercel.app" target="_blank" rel="noopener">
+        <div class="tag">영어</div>
+        <div class="nm">영어 플랫폼</div>
+        <div class="ds">영어 놀이터, 게임방과 AI 회화, 영시 창작, 영어 작문, 영어 신문 만들기.</div>
+        <div class="apps">영어 문장 놀이터, 영어 게임방, 영어 시, 영어 작문, 영어 신문</div>
+      </a>
+
+      <a class="card e" href="https://eaim-korean-play.vercel.app" target="_blank" rel="noopener">
+        <div class="tag">국어</div>
+        <div class="nm">국어 플레이</div>
+        <div class="ds">읽고 쓰고 말하는 국어 활동을 놀이로 바꾼 수업 도구.</div>
+        <div class="apps">국어 어휘 게임방, 국어 신문, 감정 시인, 국어 작문</div>
+      </a>
+
+      <a class="card i" href="https://eaim-care.vercel.app" target="_blank" rel="noopener">
+        <div class="tag">창체 · 다문화</div>
+        <div class="nm">에임 케어</div>
+        <div class="ds">마음 트랙과 한국어 트랙. 감정·가치를 다루는 활동과, 한국어를 배우는 학생을 위한 수업방.</div>
+        <div class="apps">감정 이야기, 기분 맞추기, 마음 온도계, 둥근 말하기, 생활 행동 질문, 마이 바이브 런웨이, 한글 편지, 한국어 문장 놀이터</div>
+      </a>
+
+      <a class="card a" href="https://eaim-physical-play.vercel.app" target="_blank" rel="noopener">
+        <div class="tag">체육</div>
+        <div class="nm">체육 플레이</div>
+        <div class="ds">리듬에 맞춰 몸을 움직이는 활동. 음악과 체육을 이어 붙인 수업방입니다.</div>
+        <div class="apps">비트 &amp; 바스켓</div>
+      </a>
+
+      <a class="card m" href="https://eaimfairytale.vercel.app" target="_blank" rel="noopener">
+        <div class="tag">유아 · 초등</div>
+        <div class="nm">뮤니의 동화마을</div>
+        <div class="ds">뮤니와 함께 나만의 동화를 만들고 서재에 모으는 곳. 잠들기 전에도 읽어줍니다.</div>
+        <div class="apps">이야기동화, 배움동화, 뮤니의 서재</div>
+      </a>
+
+      <a class="card a" href="https://book-publisher.vercel.app" target="_blank" rel="noopener">
+        <div class="tag">출판</div>
+        <div class="nm">Publoo</div>
+        <div class="ds">학생 글과 그림을 모아 한 권의 책으로 엮는 출판 도구. 뮤지컬 그림책과 학급 문집을 이걸로 만듭니다.</div>
+        <div class="apps">Publoo 출판앱</div>
+      </a>
+    </div>
+
+    <p style="margin-top:26px;color:var(--soft);font-size:.9rem">
+      도덕과 가정 플랫폼을 준비하고 있습니다.
+    </p>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <h2>소개</h2>
+    <p class="sub">박성애</p>
+
+    <ul class="facts">
+      <li><b>현직</b><span>경북 경산 자인중학교 음악교사</span></li>
+      <li><b>경력</b><span>35년차. 교실에서 수업하며 에임(EAIM)을 만들어왔습니다.</span></li>
+      <li><b>연구회</b><span>EAIM 미디어음악교사연구회 대표 (교육부 학교예술교육 교사연구회)</span></li>
+      <li><b>저서</b><span>『코딩은 몰라요 — AI한테 물었더니 앱이 됐다』</span></li>
+      <li><b>만든 것</b><span>에임(EAIM) 교육철학, 뮤토니즈(Mutonies) 어린이 IP, 교과 플랫폼 아홉 종</span></li>
+    </ul>
+
+    <p style="margin-top:26px">
+      여기 있는 앱은 전부 제 수업에서 쓰려고 만든 것들입니다.
+      다른 선생님이 쓰시는 것도 환영합니다. 쓰시다 불편한 점이나
+      고쳤으면 하는 부분이 있으면 알려주세요.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <!-- ⚠️ 연락처를 넣으실 거면 아래 줄을 고쳐주세요. -->
+    <p>에임 EAIM · 에임에듀 · <a href="https://eaim.kr/">eaim.kr</a> · 박성애 · <a href="https://github.com/asdtt354-stack" target="_blank" rel="noopener">GitHub</a></p>
+    <p style="font-size:.82rem">
+      집계 기준 — 학생이나 교사가 직접 들어가 쓰는 화면을 앱 1개로 셉니다.
+      교과서 차시 학습페이지 209개와 자가점검방 144개를 합해 교과 학습 콘텐츠 353개,
+      허브·안내 화면까지 더한 웹 화면 전체가 526개입니다.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
