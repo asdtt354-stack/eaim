@@ -32,11 +32,12 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
   :root{
-    --paper:#fdfaf6; --ink:#2a2724; --soft:#78706a; --line:#eae0d6;
-    --e:#c9553f;   /* Emotion */
-    --a:#c9932f;   /* Artscape */
-    --i:#2f7a6b;   /* Interactive */
-    --m:#6a4f8a;   /* Musicalization */
+    --paper:#fdfaf6; --ink:#2a2724; --soft:#6f6761; --line:#e4d8cb;
+    --e:#c0432b;   /* Emotion */
+    --a:#bd8413;   /* Artscape */
+    --i:#1f6f5c;   /* Interactive */
+    --m:#5b3d82;   /* Musicalization */
+    --e-bg:#fceee9; --a-bg:#fbf1dd; --i-bg:#e4f1ec; --m-bg:#efe9f7;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -44,8 +45,9 @@
     margin:0;color:var(--ink);line-height:1.75;word-break:keep-all;
     font-family:'Pretendard Variable',Pretendard,'Malgun Gothic',sans-serif;
     background:
-      radial-gradient(900px 420px at 8% -8%, #fbeee8 0%, transparent 62%),
-      radial-gradient(760px 380px at 96% 4%, #eaf3f0 0%, transparent 60%),
+      radial-gradient(900px 460px at 6% -10%, #f8ddd2 0%, transparent 64%),
+      radial-gradient(820px 420px at 98% 2%, #d9ece4 0%, transparent 62%),
+      radial-gradient(700px 360px at 50% 120%, #ece2f5 0%, transparent 60%),
       var(--paper);
   }
   .wrap{max-width:760px;margin:0 auto;padding:0 22px}
@@ -56,32 +58,39 @@
   nav{position:sticky;top:0;z-index:10;background:rgba(253,250,246,.86);
     backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
   nav .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:14px;padding-bottom:14px}
-  nav .logo{font-weight:800;letter-spacing:-.02em;font-size:1.02rem}
-  nav .logo small{font-weight:700;font-size:.8rem;color:var(--soft);margin-left:6px;letter-spacing:0}
+  nav .logo{font-weight:800;letter-spacing:-.02em;font-size:1.02rem;color:var(--m)}
+  nav .logo small{font-weight:700;font-size:.8rem;color:var(--e);margin-left:6px;letter-spacing:0}
   nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0;font-size:.9rem}
   nav a{text-decoration:none;color:var(--soft);font-weight:600}
   nav a:hover{color:var(--ink)}
 
   /* ── 표지 ── */
   header.hero{padding:86px 0 70px}
-  header.hero .eyebrow{font-size:.84rem;font-weight:800;color:var(--soft);letter-spacing:.1em;margin:0 0 16px}
+  header.hero .eyebrow{font-size:.84rem;font-weight:800;color:var(--i);letter-spacing:.1em;margin:0 0 16px}
   header.hero h1{margin:0;font-size:clamp(2.1rem,6.4vw,3.15rem);line-height:1.28;letter-spacing:-.035em;font-weight:800}
   header.hero h1 em{font-style:normal;color:var(--e)}
   header.hero .lead{margin:22px 0 0;font-size:1.08rem;color:var(--soft);max-width:33em}
 
   .four{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin-top:42px}
-  .four div{padding:16px 13px;background:#fff;border:1px solid var(--line);border-radius:14px;
-    border-top:3px solid var(--line)}
+  .four div{padding:16px 13px;border:1px solid var(--line);border-radius:14px;
+    border-top:4px solid var(--line)}
   .four .k{font-size:.76rem;font-weight:800;letter-spacing:.06em;color:var(--soft)}
   .four .v{font-weight:800;font-size:1.02rem;margin-top:3px}
-  .four div:nth-child(1){border-top-color:var(--e)} .four div:nth-child(1) .v{color:var(--e)}
-  .four div:nth-child(2){border-top-color:var(--a)} .four div:nth-child(2) .v{color:var(--a)}
-  .four div:nth-child(3){border-top-color:var(--i)} .four div:nth-child(3) .v{color:var(--i)}
-  .four div:nth-child(4){border-top-color:var(--m)} .four div:nth-child(4) .v{color:var(--m)}
+  .four div:nth-child(1){border-top-color:var(--e);background:var(--e-bg);border-color:#f0cfc4}
+  .four div:nth-child(1) .v{color:var(--e)} .four div:nth-child(1) .k{color:var(--e);opacity:.75}
+  .four div:nth-child(2){border-top-color:var(--a);background:var(--a-bg);border-color:#eeddb5}
+  .four div:nth-child(2) .v{color:var(--a)} .four div:nth-child(2) .k{color:var(--a);opacity:.8}
+  .four div:nth-child(3){border-top-color:var(--i);background:var(--i-bg);border-color:#c3ded4}
+  .four div:nth-child(3) .v{color:var(--i)} .four div:nth-child(3) .k{color:var(--i);opacity:.8}
+  .four div:nth-child(4){border-top-color:var(--m);background:var(--m-bg);border-color:#d5c9e7}
+  .four div:nth-child(4) .v{color:var(--m)} .four div:nth-child(4) .k{color:var(--m);opacity:.8}
 
   /* ── 절 ── */
   section{padding:62px 0;border-top:1px solid var(--line)}
-  h2{font-size:1.42rem;letter-spacing:-.025em;margin:0 0 8px;font-weight:800}
+  h2{font-size:1.42rem;letter-spacing:-.025em;margin:0 0 8px;font-weight:800;
+    display:inline-block;padding-bottom:6px;border-bottom:3px solid var(--e)}
+  #platforms h2{border-bottom-color:var(--i)}
+  #about h2{border-bottom-color:var(--m)}
   .sub{color:var(--soft);margin:0 0 30px;font-size:.96rem}
   p{margin:0 0 16px}
 
@@ -90,29 +99,40 @@
     background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
   .scale div{padding:18px 14px;border-left:1px solid var(--line)}
   .scale div:first-child{border-left:0}
+  .scale div:nth-child(1){background:var(--e-bg)} .scale div:nth-child(1) .n{color:var(--e)}
+  .scale div:nth-child(2){background:var(--a-bg)} .scale div:nth-child(2) .n{color:var(--a)}
+  .scale div:nth-child(3){background:var(--i-bg)} .scale div:nth-child(3) .n{color:var(--i)}
+  .scale div:nth-child(4){background:var(--m-bg)} .scale div:nth-child(4) .n{color:var(--m)}
   .scale .n{font-weight:800;font-size:1.34rem;letter-spacing:-.03em;line-height:1.2}
   .scale .l{font-size:.78rem;color:var(--soft);margin-top:4px;line-height:1.45}
 
   /* ── 플랫폼 카드 ── */
   .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:13px}
   .card{display:block;text-decoration:none;background:#fff;border:1px solid var(--line);
+    border-top:4px solid var(--line);
     border-radius:16px;padding:20px;transition:transform .15s,box-shadow .15s,border-color .15s}
   .card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(120,90,60,.09)}
-  .card .tag{font-size:.72rem;font-weight:800;letter-spacing:.05em;color:var(--soft)}
+  .card .tag{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.05em;
+    color:var(--soft);padding:3px 9px;border-radius:99px;background:#f3ece4}
   .card .nm{font-weight:800;font-size:1.06rem;margin:5px 0 5px;letter-spacing:-.02em}
   .card .ds{font-size:.88rem;color:var(--soft);line-height:1.6}
   .card .apps{font-size:.8rem;color:var(--soft);line-height:1.65;margin-top:12px;
     padding-top:11px;border-top:1px solid var(--line)}
   .card .apps b{font-weight:700;color:var(--ink)}
-  .card.e:hover{border-color:var(--e)} .card.e .tag{color:var(--e)}
-  .card.a:hover{border-color:var(--a)} .card.a .tag{color:var(--a)}
-  .card.i:hover{border-color:var(--i)} .card.i .tag{color:var(--i)}
-  .card.m:hover{border-color:var(--m)} .card.m .tag{color:var(--m)}
+  .card.e{border-top-color:var(--e)} .card.e .tag{color:var(--e);background:var(--e-bg)}
+  .card.a{border-top-color:var(--a)} .card.a .tag{color:var(--a);background:var(--a-bg)}
+  .card.i{border-top-color:var(--i)} .card.i .tag{color:var(--i);background:var(--i-bg)}
+  .card.m{border-top-color:var(--m)} .card.m .tag{color:var(--m);background:var(--m-bg)}
+  .card.e:hover{border-color:var(--e);border-top-color:var(--e)}
+  .card.a:hover{border-color:var(--a);border-top-color:var(--a)}
+  .card.i:hover{border-color:var(--i);border-top-color:var(--i)}
+  .card.m:hover{border-color:var(--m);border-top-color:var(--m)}
+  .card .nm{color:var(--ink)}
 
   /* ── 소개 ── */
   .facts{list-style:none;padding:0;margin:0}
   .facts li{padding:11px 0;border-bottom:1px solid var(--line);display:flex;gap:16px;font-size:.96rem}
-  .facts li b{flex:0 0 92px;color:var(--soft);font-weight:700;font-size:.88rem;padding-top:2px}
+  .facts li b{flex:0 0 92px;color:var(--m);font-weight:800;font-size:.88rem;padding-top:2px}
   .quote{border-left:3px solid var(--e);padding:4px 0 4px 18px;margin:26px 0;color:var(--soft);font-size:1.02rem}
 
   footer{padding:46px 0 70px;border-top:1px solid var(--line);color:var(--soft);font-size:.88rem}
@@ -294,7 +314,7 @@
     <p class="sub">박성애</p>
 
     <ul class="facts">
-      <li><b>현직</b><span>경북 경산 자인중학교 음악교사</span></li>
+      <li><b>현직</b><span>경북 경산 소재 중학교 음악교사</span></li>
       <li><b>경력</b><span>35년차. 교실에서 수업하며 에임(EAIM)을 만들어왔습니다.</span></li>
       <li><b>연구회</b><span>EAIM 미디어음악교사연구회 대표 (교육부 학교예술교육 교사연구회)</span></li>
       <li><b>저서</b><span>『코딩은 몰라요 — AI한테 물었더니 앱이 됐다』</span></li>
@@ -306,13 +326,18 @@
       다른 선생님이 쓰시는 것도 환영합니다. 쓰시다 불편한 점이나
       고쳤으면 하는 부분이 있으면 알려주세요.
     </p>
+
+    <p style="margin-top:6px">
+      <b>문의</b> <a href="mailto:asdtt354@gmail.com?subject=%5BEAIM%5D%20%EB%AC%B8%EC%9D%98%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4">asdtt354@gmail.com</a>
+    </p>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <!-- ⚠️ 연락처를 넣으실 거면 아래 줄을 고쳐주세요. -->
-    <p>에임 EAIM · 에임에듀 · <a href="https://eaim.kr/">eaim.kr</a> · 박성애 · <a href="https://github.com/asdtt354-stack" target="_blank" rel="noopener">GitHub</a></p>
+    <p>에임 EAIM · 에임에듀 · <a href="https://eaim.kr/">eaim.kr</a> · 박성애 ·
+      <a href="mailto:asdtt354@gmail.com?subject=%5BEAIM%5D%20%EB%AC%B8%EC%9D%98%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4">asdtt354@gmail.com</a> ·
+      <a href="https://github.com/asdtt354-stack" target="_blank" rel="noopener">GitHub</a></p>
     <p style="font-size:.82rem">
       집계 기준 — 학생이나 교사가 직접 들어가 쓰는 화면을 앱 1개로 셉니다.
       교과서 차시 학습페이지 209개와 자가점검방 144개를 합해 교과 학습 콘텐츠 353개,
