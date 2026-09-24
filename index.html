@@ -14,18 +14,48 @@
 <meta property="og:title" content="에임 EAIM — 중학교 교사가 만든 교과 수업 앱">
 <meta property="og:description" content="에임에듀: 아홉 개 교과 플랫폼, 수업 앱 77종. 교사 계정으로 수업방을 열고 학생은 QR로 들어옵니다. 모두 무료.">
 <meta property="og:url" content="https://eaim.kr/">
-<!-- 카톡·SNS 미리보기 그림을 넣으려면 og.png를 저장소에 올린 뒤 아래 두 줄의 주석을 푸세요
 <meta property="og:image" content="https://eaim.kr/og.png">
-<meta property="og:image:alt" content="에임 EAIM 소개">
--->
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="에임 EAIM — 중학교 교사가 만든 교과 수업 앱">
+<meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "에임",
-  "alternateName": ["EAIM", "에임에듀", "에임 에듀", "EAIM Edu"],
-  "url": "https://eaim.kr/",
-  "inLanguage": "ko"
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://eaim.kr/#website",
+      "name": "에임",
+      "alternateName": ["EAIM", "에임에듀", "에임 에듀", "EAIM Edu", "EAIM 음악교육", "EAIM 수업 플랫폼"],
+      "url": "https://eaim.kr/",
+      "inLanguage": "ko",
+      "publisher": {"@id": "https://eaim.kr/#person"},
+      "about": "35년차 중학교 음악교사가 만든 교육철학 EAIM(Emotion·Artscape·Interactive·Musicalization)과 교과 수업 앱 플랫폼"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://eaim.kr/#person",
+      "name": "박성애",
+      "jobTitle": "중학교 음악교사",
+      "description": "35년차 중학교 음악교사. 교육철학 EAIM과 어린이 IP 뮤토니즈(Mutoniz)를 만들고, 『코딩은 몰라요 — AI한테 물었더니 앱이 됐다』를 썼습니다.",
+      "url": "https://eaim.kr/",
+      "knowsAbout": ["음악교육", "EAIM", "바이브 코딩", "에듀테크", "어린이 음악 동화"],
+      "sameAs": [
+        "https://www.youtube.com/@MutonizWorld",
+        "https://www.youtube.com/@MutonizEnglish",
+        "https://www.youtube.com/@eaim_studio",
+        "https://www.instagram.com/eaim_studio/",
+        "https://github.com/asdtt354-stack"
+      ]
+    },
+    {
+      "@type": "Book",
+      "name": "코딩은 몰라요 — AI한테 물었더니 앱이 됐다",
+      "author": {"@id": "https://eaim.kr/#person"},
+      "inLanguage": "ko"
+    }
+  ]
 }
 </script>
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -290,8 +320,8 @@
       <a class="card m" href="https://eaimfairytale.vercel.app" target="_blank" rel="noopener">
         <div class="tag">유아 · 초등</div>
         <div class="nm">뮤니의 동화마을</div>
-        <div class="ds">뮤니와 함께 나만의 동화를 만들고 서재에 모으는 곳. 잠들기 전에도 읽어줍니다.</div>
-        <div class="apps">이야기동화, 배움동화, 뮤니의 서재</div>
+        <div class="ds">뮤니와 함께 나만의 동화를 만들고 서재에 모으는 곳. 음악 선생님이 들려주는 명작동화를 누구나 무료로 보고 듣는 뮤니 도서관도 있어요. 한국어·영어.</div>
+        <div class="apps">이야기동화, 배움동화, 뮤니의 서재, 뮤니 도서관(무료 명작동화·영상)</div>
       </a>
 
       <a class="card a" href="https://book-publisher.vercel.app" target="_blank" rel="noopener">
@@ -318,7 +348,14 @@
       <li><b>경력</b><span>35년차. 교실에서 수업하며 에임(EAIM)을 만들어왔습니다.</span></li>
       <li><b>연구회</b><span>EAIM 미디어음악교사연구회 대표 (교육부 학교예술교육 교사연구회)</span></li>
       <li><b>저서</b><span>『코딩은 몰라요 — AI한테 물었더니 앱이 됐다』</span></li>
-      <li><b>만든 것</b><span>에임(EAIM) 교육철학, 뮤토니즈(Mutonies) 어린이 IP, 교과 플랫폼 아홉 종</span></li>
+      <li><b>만든 것</b><span>에임(EAIM) 교육철학, 뮤토니즈(Mutoniz) 어린이 IP, 교과 플랫폼 아홉 종</span></li>
+      <li><b>만나는 곳</b><span>
+        <a href="https://www.youtube.com/@MutonizWorld" target="_blank" rel="noopener">뮤토니즈월드 (유튜브)</a> ·
+        <a href="https://www.youtube.com/@MutonizEnglish" target="_blank" rel="noopener">MUTONIZ WORLD English</a> ·
+        <a href="https://www.youtube.com/@eaim_studio" target="_blank" rel="noopener">에임히어로즈 (유튜브)</a> ·
+        <a href="https://www.instagram.com/eaim_studio/" target="_blank" rel="noopener">인스타그램 @eaim_studio</a> ·
+        <a href="https://eaimfairytale.vercel.app/muni-library/" target="_blank" rel="noopener">뮤니 도서관 (무료 동화)</a>
+      </span></li>
     </ul>
 
     <p style="margin-top:26px">
