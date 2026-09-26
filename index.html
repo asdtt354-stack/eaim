@@ -100,7 +100,7 @@
       radial-gradient(640px 420px at 92% 12%, rgba(79,209,168,.20), transparent 65%),
       radial-gradient(760px 480px at 70% 110%, rgba(181,140,255,.30), transparent 65%),
       linear-gradient(180deg,var(--night),var(--night2));
-    padding:150px 0 0}
+    padding:150px 0 88px}
   .hero .eyebrow{font-size:.8rem;font-weight:800;letter-spacing:.22em;color:rgba(255,255,255,.62);margin:0 0 22px}
   .hero h1{margin:0;font-size:clamp(2.5rem,7.6vw,5rem);line-height:1.14;letter-spacing:-.045em;font-weight:900}
   .hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--e2),var(--a2) 35%,var(--i2) 65%,var(--m2));
@@ -115,11 +115,6 @@
   .btn.ghost:hover{background:rgba(255,255,255,.08)}
 
 
-  .waves{display:block;width:100%;height:170px;margin-top:-30px}
-  .waves path{fill:none;stroke-width:2.6;stroke-linecap:round;opacity:.9}
-  .waves .w{animation:flow 9s linear infinite}
-  .waves .w2{animation-duration:12s} .waves .w3{animation-duration:15s} .waves .w4{animation-duration:11s}
-  @keyframes flow{from{transform:translateX(0)}to{transform:translateX(-400px)}}
 
   /* ── 표지 안 숫자 ── */
   .scale{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:56px;position:relative;z-index:2}
@@ -143,6 +138,10 @@
   .pillar .big{font-size:3.4rem;font-weight:900;line-height:1;letter-spacing:-.05em;opacity:.95}
   .pillar .t{font-weight:900;font-size:1.1rem;margin-top:14px}
   .pillar .d{font-size:.88rem;color:var(--soft);line-height:1.6;margin-top:4px}
+  .pillar .d i{font-style:normal;font-size:.76rem;font-weight:700;letter-spacing:.06em;opacity:.8}
+  .pillar.opt{background:transparent!important;border:2px dashed #c9b8e2}
+  .pillar .badge{position:absolute;top:16px;right:16px;font-size:.72rem;font-weight:800;color:var(--m);
+    background:var(--m-bg);border-radius:99px;padding:3px 10px}
   .pillar:nth-child(1){background:var(--e-bg)} .pillar:nth-child(1) .big,.pillar:nth-child(1) .t{color:var(--e)}
   .pillar:nth-child(2){background:var(--a-bg)} .pillar:nth-child(2) .big,.pillar:nth-child(2) .t{color:var(--a)}
   .pillar:nth-child(3){background:var(--i-bg)} .pillar:nth-child(3) .big,.pillar:nth-child(3) .t{color:var(--i)}
@@ -222,7 +221,8 @@
   @media(max-width:640px){
     .wrap{padding:0 18px}
     nav ul{gap:14px;font-size:.84rem}
-    .hero{padding-top:120px}
+    .hero{padding:120px 0 60px}
+    .hero h1{font-size:clamp(1.7rem,8.3vw,2.5rem)}
     .hero .eyebrow{font-size:.68rem;letter-spacing:.12em}
     .scale{grid-template-columns:repeat(2,1fr);gap:10px;margin-top:34px}
     .scale>div{padding:14px 14px 12px}
@@ -231,7 +231,6 @@
     .cards,.steps{grid-template-columns:1fr}
     .card.feature{grid-column:auto}
     section{padding:72px 0}
-    .waves{height:120px}
   }
   @media(max-width:380px){
     .wrap{padding:0 16px}
@@ -241,7 +240,6 @@
   }
   @media(prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
-    .waves .w{animation:none}
     .rv{opacity:1;transform:none;transition:none}
     .card,.btn,.card .go{transition:none}
     .card:hover,.btn:hover{transform:none}
@@ -265,7 +263,7 @@
 <header class="hero" id="top">
   <div class="wrap">
     <p class="eyebrow">EMOTION · ARTSCAPE · INTERACTIVE · MUSICALIZATION</p>
-    <h1>느끼고, 표현하고,<br>주고받고, <em>노래가 되는</em> 수업</h1>
+    <h1>감정이 예술을 만나<br><em>서로를 이해하는</em> 수업</h1>
     <p class="lead">
       22년에 걸쳐 교실에서 만들어온 교육철학 에임(EAIM)과,
       그 철학으로 실제 수업에서 쓰이고 있는 교과 플랫폼 에임에듀입니다.
@@ -283,13 +281,6 @@
     </div>
   </div>
 
-  <!-- 네 가지 축이 네 줄의 소리 물결로 흐른다 -->
-  <svg class="waves" viewBox="0 0 1200 170" preserveAspectRatio="none" aria-hidden="true">
-    <g class="w w1"><path stroke="#ff7a5c" d="M0 70 q50 -34 100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0"/></g>
-    <g class="w w2"><path stroke="#ffc94a" d="M0 92 q50 26 100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0"/></g>
-    <g class="w w3"><path stroke="#4fd1a8" d="M0 110 q100 -40 200 0 t200 0 t200 0 t200 0 t200 0 t200 0 t200 0 t200 0"/></g>
-    <g class="w w4"><path stroke="#b58cff" d="M0 128 q50 18 100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0"/></g>
-  </svg>
 </header>
 
 
@@ -297,18 +288,23 @@
   <div class="wrap">
     <p class="label rv">PHILOSOPHY</p>
     <h2 class="rv">에임(EAIM)이란</h2>
-    <p class="sub rv">교실에서 출발해 교실로 돌아오는 네 가지 축</p>
+    <p class="sub rv">감정을, 예술적 배경 속에서, 서로 소통하며 이야기를 만들어 가는 수업</p>
 
     <div class="pillars">
-      <div class="pillar rv"><div class="big">E</div><div class="t">느끼고</div><div class="d">아이가 먼저 느낍니다. Emotion</div></div>
-      <div class="pillar rv"><div class="big">A</div><div class="t">표현하고</div><div class="d">그 느낌을 자기 방식으로 표현합니다. Artscape</div></div>
-      <div class="pillar rv"><div class="big">I</div><div class="t">주고받고</div><div class="d">표현한 것을 다른 사람과 주고받습니다. Interactive</div></div>
-      <div class="pillar rv"><div class="big">M</div><div class="t">노래가 되는</div><div class="d">그 과정이 하나의 노래처럼 남습니다. Musicalization</div></div>
+      <div class="pillar rv"><div class="big">E</div><div class="t">감정</div><div class="d">아이의 감정에서 수업이 출발합니다.<br><i>Emotion</i></div></div>
+      <div class="pillar rv"><div class="big">A</div><div class="t">예술적 배경</div><div class="d">음악·그림·이야기가 그 감정이 놓이는 배경이 됩니다.<br><i>Artscape</i></div></div>
+      <div class="pillar rv"><div class="big">I</div><div class="t">소통</div><div class="d">그 배경 위에서 서로의 감정을 주고받습니다.<br><i>Interactive</i></div></div>
+      <div class="pillar rv"><div class="big">M</div><div class="t">이야기</div><div class="d">한 편의 뮤지컬처럼 함께 이야기를 만들어 갑니다. 노래·리듬은 교과에 따라 선택.<br><i>Musicalization</i></div></div>
     </div>
 
     <div class="narrow">
       <p class="rv">
-        이 네 가지가 한 수업 안에서 이어질 때 배움이 오래 남는다고 봅니다.
+        에임은 <b>감정(E)</b>을 <b>예술적 배경(A)</b> 속에서 <b>서로 소통하며(I)</b>
+        <b>이야기를 만들어 가는(M)</b> 수업입니다.
+        M은 뮤지컬에서 시작한 축이라, 한 편의 뮤지컬처럼 흐름 있는 이야기로 수업을 완성합니다.
+        그 이야기에 노래와 리듬을 입힐지는 교과와 수업에 따라 선택합니다.
+      </p>
+      <p class="rv">
         그래서 여기 있는 앱들은 지식을 전달하는 도구가 아니라,
         아이가 무언가를 만들어 내놓고 그것이 누군가에게 가닿게 하는 자리로 만들어졌습니다.
       </p>
