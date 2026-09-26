@@ -9,6 +9,10 @@
 <title>에임 EAIM — 중학교 교사가 만든 교과 수업 앱 | 에임에듀 음악·과학·수학·사회·영어·국어</title>
 <meta name="description" content="에임(EAIM)은 35년차 중학교 음악교사 박성애가 만든 교육철학이자, 교실에서 실제로 쓰이는 수업 앱 77종을 모은 에임에듀 플랫폼입니다. 음악 연주실·솔페지오·뮤지컬 메이커, 과학 인체 탐험대·태양계 오디세이, 역사 신문, 수학 연산 게임, 영어·국어 놀이터까지 아홉 개 교과 플랫폼. 모두 무료.">
 <link rel="canonical" href="https://eaim.kr/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#fdfaf6">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="에임 EAIM">
 <meta property="og:title" content="에임 EAIM — 중학교 교사가 만든 교과 수업 앱">
@@ -116,7 +120,7 @@
   .four div:nth-child(4) .v{color:var(--m)} .four div:nth-child(4) .k{color:var(--m);opacity:.8}
 
   /* ── 절 ── */
-  section{padding:62px 0;border-top:1px solid var(--line)}
+  section{padding:62px 0;border-top:1px solid var(--line);scroll-margin-top:40px}
   h2{font-size:1.42rem;letter-spacing:-.025em;margin:0 0 8px;font-weight:800;
     display:inline-block;padding-bottom:6px;border-bottom:3px solid var(--e)}
   #platforms h2{border-bottom-color:var(--i)}
@@ -165,6 +169,23 @@
   .facts li b{flex:0 0 92px;color:var(--m);font-weight:800;font-size:.88rem;padding-top:2px}
   .quote{border-left:3px solid var(--e);padding:4px 0 4px 18px;margin:26px 0;color:var(--soft);font-size:1.02rem}
 
+  /* ── 시작하기 ── */
+  #start h2{border-bottom-color:var(--a)}
+  .steps{list-style:none;padding:0;margin:0 0 34px;display:grid;grid-template-columns:repeat(3,1fr);gap:13px;counter-reset:st}
+  .steps li{counter-increment:st;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 18px 16px}
+  .steps li::before{content:counter(st);display:inline-flex;align-items:center;justify-content:center;
+    width:28px;height:28px;border-radius:50%;font-weight:800;font-size:.9rem;color:#fff;margin-bottom:10px}
+  .steps li:nth-child(1)::before{background:var(--e)}
+  .steps li:nth-child(2)::before{background:var(--a)}
+  .steps li:nth-child(3)::before{background:var(--i)}
+  .steps .t{font-weight:800;letter-spacing:-.02em;margin-bottom:4px}
+  .steps .d{font-size:.88rem;color:var(--soft);line-height:1.6}
+  .safe{background:var(--i-bg);border:1px solid #c3ded4;border-radius:16px;padding:20px 22px}
+  .safe .t{font-weight:800;color:var(--i);margin-bottom:8px;letter-spacing:-.02em}
+  .safe ul{margin:0;padding-left:1.1em;font-size:.93rem}
+  .safe li{margin:3px 0}
+  .note{margin:16px 0 0;color:var(--soft);font-size:.85rem}
+
   footer{padding:46px 0 70px;border-top:1px solid var(--line);color:var(--soft);font-size:.88rem}
   footer a{color:var(--soft)}
   footer p{margin:0 0 8px}
@@ -174,8 +195,16 @@
     .scale{grid-template-columns:repeat(2,1fr)}
     .scale div:nth-child(3){border-left:0}
     .scale div:nth-child(n+3){border-top:1px solid var(--line)}
+    .steps{grid-template-columns:1fr}
     nav ul{gap:14px;font-size:.85rem}
     header.hero{padding:56px 0 46px}
+  }
+  @media(max-width:380px){
+    .wrap{padding:0 16px}
+    nav ul{gap:10px;font-size:.8rem}
+    nav .logo small{display:none}
+    .four{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .four .k{font-size:.66rem;letter-spacing:.02em}
   }
   @media(prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
@@ -192,6 +221,7 @@
     <ul>
       <li><a href="#what">EAIM</a></li>
       <li><a href="#platforms">수업 플랫폼</a></li>
+      <li><a href="#start">시작하기</a></li>
       <li><a href="#about">소개</a></li>
     </ul>
   </div>
@@ -338,6 +368,40 @@
   </div>
 </section>
 
+<section id="start">
+  <div class="wrap">
+    <h2>처음 쓰시는 선생님께</h2>
+    <p class="sub">교사는 구글 로그인만, 학생은 가입 없이 QR로 바로 들어옵니다.</p>
+
+    <ol class="steps">
+      <li>
+        <div class="t">교사 로그인</div>
+        <div class="d">위에서 교과 플랫폼을 골라 들어가, 구글 계정으로 교사 로그인을 합니다.</div>
+      </li>
+      <li>
+        <div class="t">수업방 열기</div>
+        <div class="d">수업방을 열면 수업 QR과 링크가 나옵니다. 교실 화면에 띄워 주세요.</div>
+      </li>
+      <li>
+        <div class="t">학생 입장</div>
+        <div class="d">학생은 QR을 찍고 반과 번호만 적으면 들어옵니다. 수업이 끝나면 교사가 방을 닫습니다.</div>
+      </li>
+    </ol>
+
+    <div class="safe">
+      <div class="t">학생 개인정보는 이렇게 지킵니다</div>
+      <ul>
+        <li>학생은 회원가입을 하지 않고, 학생 계정도 만들지 않습니다.</li>
+        <li>반과 번호만 적습니다. 이름은 적지 않아도 되고, 적더라도 첫 글자만 남깁니다.</li>
+        <li>학생 기기에는 AI 열쇠(키)가 없고, AI에 학생 이름을 보내지 않습니다.</li>
+        <li>기록은 교사가 연 수업에 묶여 교과·앱별로 따로 보관됩니다.</li>
+      </ul>
+    </div>
+
+    <p class="note">AI 없이 하는 연습·놀이는 로그인 없이도 열려 있습니다. 뮤니의 동화마을은 가정용 서비스라 이용 방식이 다릅니다.</p>
+  </div>
+</section>
+
 <section id="about">
   <div class="wrap">
     <h2>소개</h2>
@@ -346,7 +410,7 @@
     <ul class="facts">
       <li><b>현직</b><span>경북 경산 소재 중학교 음악교사</span></li>
       <li><b>경력</b><span>35년차. 교실에서 수업하며 에임(EAIM)을 만들어왔습니다.</span></li>
-      <li><b>연구회</b><span>EAIM 미디어음악교사연구회 대표 (교육부 학교예술교육 교사연구회)</span></li>
+      <li><b>연구회</b><span>EAIM 창작미디어음악 교사연구회 대표 (교육부 학교예술교육 교사연구회)</span></li>
       <li><b>저서</b><span>『코딩은 몰라요 — AI한테 물었더니 앱이 됐다』</span></li>
       <li><b>만든 것</b><span>에임(EAIM) 교육철학, 뮤토니즈(Mutoniz) 어린이 IP, 교과 플랫폼 아홉 종</span></li>
       <li><b>만나는 곳</b><span>
