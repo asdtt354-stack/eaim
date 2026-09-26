@@ -12,7 +12,7 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta name="theme-color" content="#fdfaf6">
+<meta name="theme-color" content="#16121f">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="에임 EAIM">
 <meta property="og:title" content="에임 EAIM — 중학교 교사가 만든 교과 수업 앱">
@@ -66,158 +66,199 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
   :root{
-    --paper:#fdfaf6; --ink:#2a2724; --soft:#6f6761; --line:#e4d8cb;
-    --e:#c0432b;   /* Emotion */
-    --a:#bd8413;   /* Artscape */
-    --i:#1f6f5c;   /* Interactive */
-    --m:#5b3d82;   /* Musicalization */
+    --paper:#fbf8f3; --ink:#221e1b; --soft:#6a625c; --line:#e6dccf;
+    --night:#16121f; --night2:#221a33;
+    --e:#c0432b; --a:#bd8413; --i:#1f6f5c; --m:#5b3d82;
+    --e2:#ff7a5c; --a2:#ffc94a; --i2:#4fd1a8; --m2:#b58cff;   /* 어두운 바탕용 밝은 색 */
     --e-bg:#fceee9; --a-bg:#fbf1dd; --i-bg:#e4f1ec; --m-bg:#efe9f7;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{
-    margin:0;color:var(--ink);line-height:1.75;word-break:keep-all;
-    font-family:'Pretendard Variable',Pretendard,'Malgun Gothic',sans-serif;
-    background:
-      radial-gradient(900px 460px at 6% -10%, #f8ddd2 0%, transparent 64%),
-      radial-gradient(820px 420px at 98% 2%, #d9ece4 0%, transparent 62%),
-      radial-gradient(700px 360px at 50% 120%, #ece2f5 0%, transparent 60%),
-      var(--paper);
-  }
-  .wrap{max-width:760px;margin:0 auto;padding:0 22px}
-  a{color:var(--ink)}
-  a:focus-visible,.card:focus-visible{outline:2px solid var(--m);outline-offset:3px;border-radius:6px}
+  body{margin:0;color:var(--ink);background:var(--paper);line-height:1.75;word-break:keep-all;
+    font-family:'Pretendard Variable',Pretendard,'Malgun Gothic',sans-serif}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .narrow{max-width:760px}
+  a{color:inherit}
+  a:focus-visible,.card:focus-visible,.btn:focus-visible{outline:2px solid var(--a2);outline-offset:3px;border-radius:8px}
 
-  /* ── 머리 ── */
-  nav{position:sticky;top:0;z-index:10;background:rgba(253,250,246,.86);
-    backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-  nav .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:14px;padding-bottom:14px}
-  nav .logo{font-weight:800;letter-spacing:-.02em;font-size:1.02rem;color:var(--m)}
-  nav .logo small{font-weight:700;font-size:.8rem;color:var(--e);margin-left:6px;letter-spacing:0}
-  nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0;font-size:.9rem}
-  nav a{text-decoration:none;color:var(--soft);font-weight:600}
-  nav a:hover{color:var(--ink)}
+  /* ── 메뉴 ── */
+  nav{position:fixed;top:0;left:0;right:0;z-index:20;transition:background .25s,border-color .25s;
+    border-bottom:1px solid transparent}
+  nav .wrap{display:flex;justify-content:space-between;align-items:center;height:62px}
+  nav .logo{font-weight:900;letter-spacing:-.02em;font-size:1.08rem;color:#fff;text-decoration:none}
+  nav .logo small{font-weight:700;font-size:.8rem;color:var(--e2);margin-left:6px}
+  nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;font-size:.9rem}
+  nav ul a{text-decoration:none;color:rgba(255,255,255,.72);font-weight:600}
+  nav ul a:hover{color:#fff}
+  nav.solid{background:rgba(251,248,243,.92);backdrop-filter:blur(10px);border-bottom-color:var(--line)}
+  nav.solid .logo{color:var(--m)} nav.solid .logo small{color:var(--e)}
+  nav.solid ul a{color:var(--soft)} nav.solid ul a:hover{color:var(--ink)}
 
   /* ── 표지 ── */
-  header.hero{padding:86px 0 70px}
-  header.hero .eyebrow{font-size:.84rem;font-weight:800;color:var(--i);letter-spacing:.1em;margin:0 0 16px}
-  header.hero h1{margin:0;font-size:clamp(2.1rem,6.4vw,3.15rem);line-height:1.28;letter-spacing:-.035em;font-weight:800}
-  header.hero h1 em{font-style:normal;color:var(--e)}
-  header.hero .lead{margin:22px 0 0;font-size:1.08rem;color:var(--soft);max-width:33em}
+  .hero{position:relative;overflow:hidden;color:#fff;background:
+      radial-gradient(700px 420px at 12% 18%, rgba(255,122,92,.28), transparent 65%),
+      radial-gradient(640px 420px at 92% 12%, rgba(79,209,168,.20), transparent 65%),
+      radial-gradient(760px 480px at 70% 110%, rgba(181,140,255,.30), transparent 65%),
+      linear-gradient(180deg,var(--night),var(--night2));
+    padding:150px 0 0}
+  .hero .eyebrow{font-size:.8rem;font-weight:800;letter-spacing:.22em;color:rgba(255,255,255,.62);margin:0 0 22px}
+  .hero h1{margin:0;font-size:clamp(2.5rem,7.6vw,5rem);line-height:1.14;letter-spacing:-.045em;font-weight:900}
+  .hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--e2),var(--a2) 35%,var(--i2) 65%,var(--m2));
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero .lead{margin:26px 0 0;font-size:clamp(1rem,2.2vw,1.18rem);color:rgba(255,255,255,.74);max-width:34em}
+  .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:999px;font-weight:800;
+    text-decoration:none;font-size:.98rem;transition:transform .15s,background .15s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn.main{background:#fff;color:var(--night)}
+  .btn.ghost{color:#fff;border:1.5px solid rgba(255,255,255,.35)}
+  .btn.ghost:hover{background:rgba(255,255,255,.08)}
 
-  .four{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin-top:42px}
-  .four div{padding:16px 13px;border:1px solid var(--line);border-radius:14px;
-    border-top:4px solid var(--line)}
-  .four .k{font-size:.76rem;font-weight:800;letter-spacing:.06em;color:var(--soft)}
-  .four .v{font-weight:800;font-size:1.02rem;margin-top:3px}
-  .four div:nth-child(1){border-top-color:var(--e);background:var(--e-bg);border-color:#f0cfc4}
-  .four div:nth-child(1) .v{color:var(--e)} .four div:nth-child(1) .k{color:var(--e);opacity:.75}
-  .four div:nth-child(2){border-top-color:var(--a);background:var(--a-bg);border-color:#eeddb5}
-  .four div:nth-child(2) .v{color:var(--a)} .four div:nth-child(2) .k{color:var(--a);opacity:.8}
-  .four div:nth-child(3){border-top-color:var(--i);background:var(--i-bg);border-color:#c3ded4}
-  .four div:nth-child(3) .v{color:var(--i)} .four div:nth-child(3) .k{color:var(--i);opacity:.8}
-  .four div:nth-child(4){border-top-color:var(--m);background:var(--m-bg);border-color:#d5c9e7}
-  .four div:nth-child(4) .v{color:var(--m)} .four div:nth-child(4) .k{color:var(--m);opacity:.8}
+  .axes{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:64px;position:relative;z-index:2}
+  .axes>div{padding:16px 16px 14px;border-radius:16px;background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(4px)}
+  .axes .k{font-size:.72rem;font-weight:800;letter-spacing:.1em}
+  .axes .v{font-size:1.2rem;font-weight:900;margin-top:2px}
+  .axes>div:nth-child(1) .k{color:var(--e2)} .axes>div:nth-child(2) .k{color:var(--a2)}
+  .axes>div:nth-child(3) .k{color:var(--i2)} .axes>div:nth-child(4) .k{color:var(--m2)}
+
+  .waves{display:block;width:100%;height:170px;margin-top:-30px}
+  .waves path{fill:none;stroke-width:2.6;stroke-linecap:round;opacity:.9}
+  .waves .w{animation:flow 9s linear infinite}
+  .waves .w2{animation-duration:12s} .waves .w3{animation-duration:15s} .waves .w4{animation-duration:11s}
+  @keyframes flow{from{transform:translateX(0)}to{transform:translateX(-400px)}}
+
+  /* ── 숫자 띠 ── */
+  .band{background:var(--night2);color:#fff;padding:0 0 56px}
+  .scale{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .scale>div{padding:6px 4px}
+  .scale .n{font-weight:900;font-size:clamp(2.2rem,5.4vw,3.4rem);letter-spacing:-.04em;line-height:1}
+  .scale>div:nth-child(1) .n{color:var(--e2)} .scale>div:nth-child(2) .n{color:var(--a2)}
+  .scale>div:nth-child(3) .n{color:var(--i2)} .scale>div:nth-child(4) .n{color:var(--m2)}
+  .scale .l{font-size:.86rem;color:rgba(255,255,255,.66);margin-top:8px}
 
   /* ── 절 ── */
-  section{padding:62px 0;border-top:1px solid var(--line);scroll-margin-top:40px}
-  h2{font-size:1.42rem;letter-spacing:-.025em;margin:0 0 8px;font-weight:800;
-    display:inline-block;padding-bottom:6px;border-bottom:3px solid var(--e)}
-  #platforms h2{border-bottom-color:var(--i)}
-  #about h2{border-bottom-color:var(--m)}
-  .sub{color:var(--soft);margin:0 0 30px;font-size:.96rem}
+  section{padding:96px 0;scroll-margin-top:40px}
+  .label{font-size:.76rem;font-weight:800;letter-spacing:.2em;color:var(--soft);margin:0 0 10px}
+  h2{font-size:clamp(1.7rem,4vw,2.4rem);letter-spacing:-.04em;line-height:1.25;margin:0 0 14px;font-weight:900}
+  .sub{color:var(--soft);margin:0 0 40px;font-size:1.02rem}
   p{margin:0 0 16px}
 
-  /* ── 규모 ── */
-  .scale{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:0 0 30px;
-    background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
-  .scale div{padding:18px 14px;border-left:1px solid var(--line)}
-  .scale div:first-child{border-left:0}
-  .scale div:nth-child(1){background:var(--e-bg)} .scale div:nth-child(1) .n{color:var(--e)}
-  .scale div:nth-child(2){background:var(--a-bg)} .scale div:nth-child(2) .n{color:var(--a)}
-  .scale div:nth-child(3){background:var(--i-bg)} .scale div:nth-child(3) .n{color:var(--i)}
-  .scale div:nth-child(4){background:var(--m-bg)} .scale div:nth-child(4) .n{color:var(--m)}
-  .scale .n{font-weight:800;font-size:1.34rem;letter-spacing:-.03em;line-height:1.2}
-  .scale .l{font-size:.78rem;color:var(--soft);margin-top:4px;line-height:1.45}
+  /* EAIM이란 */
+  #what .pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:40px 0 44px}
+  .pillar{border-radius:20px;padding:22px 20px 20px;position:relative;overflow:hidden}
+  .pillar .big{font-size:3.4rem;font-weight:900;line-height:1;letter-spacing:-.05em;opacity:.95}
+  .pillar .t{font-weight:900;font-size:1.1rem;margin-top:14px}
+  .pillar .d{font-size:.88rem;color:var(--soft);line-height:1.6;margin-top:4px}
+  .pillar:nth-child(1){background:var(--e-bg)} .pillar:nth-child(1) .big,.pillar:nth-child(1) .t{color:var(--e)}
+  .pillar:nth-child(2){background:var(--a-bg)} .pillar:nth-child(2) .big,.pillar:nth-child(2) .t{color:var(--a)}
+  .pillar:nth-child(3){background:var(--i-bg)} .pillar:nth-child(3) .big,.pillar:nth-child(3) .t{color:var(--i)}
+  .pillar:nth-child(4){background:var(--m-bg)} .pillar:nth-child(4) .big,.pillar:nth-child(4) .t{color:var(--m)}
+  .quote{font-size:clamp(1.2rem,2.8vw,1.6rem);font-weight:800;letter-spacing:-.03em;line-height:1.5;
+    margin:0;padding:34px 0 0;border-top:1px solid var(--line)}
+  .quote span{color:var(--e)}
 
-  /* ── 플랫폼 카드 ── */
-  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:13px}
-  .card{display:block;text-decoration:none;background:#fff;border:1px solid var(--line);
-    border-top:4px solid var(--line);
-    border-radius:16px;padding:20px;transition:transform .15s,box-shadow .15s,border-color .15s}
-  .card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(120,90,60,.09)}
-  .card .tag{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.05em;
-    color:var(--soft);padding:3px 9px;border-radius:99px;background:#f3ece4}
-  .card .nm{font-weight:800;font-size:1.06rem;margin:5px 0 5px;letter-spacing:-.02em}
-  .card .ds{font-size:.88rem;color:var(--soft);line-height:1.6}
-  .card .apps{font-size:.8rem;color:var(--soft);line-height:1.65;margin-top:12px;
-    padding-top:11px;border-top:1px solid var(--line)}
-  .card .apps b{font-weight:700;color:var(--ink)}
-  .card.e{border-top-color:var(--e)} .card.e .tag{color:var(--e);background:var(--e-bg)}
-  .card.a{border-top-color:var(--a)} .card.a .tag{color:var(--a);background:var(--a-bg)}
-  .card.i{border-top-color:var(--i)} .card.i .tag{color:var(--i);background:var(--i-bg)}
-  .card.m{border-top-color:var(--m)} .card.m .tag{color:var(--m);background:var(--m-bg)}
-  .card.e:hover{border-color:var(--e);border-top-color:var(--e)}
-  .card.a:hover{border-color:var(--a);border-top-color:var(--a)}
-  .card.i:hover{border-color:var(--i);border-top-color:var(--i)}
-  .card.m:hover{border-color:var(--m);border-top-color:var(--m)}
-  .card .nm{color:var(--ink)}
+  /* 플랫폼 */
+  #platforms{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;grid-auto-flow:dense}
+  .card{display:flex;flex-direction:column;text-decoration:none;background:var(--paper);border:1px solid var(--line);
+    border-radius:22px;overflow:hidden;transition:transform .2s,box-shadow .2s}
+  .card:hover{transform:translateY(-5px);box-shadow:0 18px 38px rgba(40,25,60,.12)}
+  .card .top{padding:22px 22px 18px;color:#fff;position:relative}
+  .card .tag{font-size:.74rem;font-weight:800;letter-spacing:.06em;opacity:.85}
+  .card .nm{font-weight:900;font-size:1.34rem;letter-spacing:-.03em;margin-top:2px}
+  .card .go{position:absolute;right:20px;top:22px;width:34px;height:34px;border-radius:50%;
+    background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;
+    font-weight:900;transition:transform .2s,background .2s}
+  .card:hover .go{transform:translateX(4px);background:rgba(255,255,255,.34)}
+  .card .body{padding:18px 22px 22px;flex:1}
+  .card .ds{font-size:.9rem;color:var(--ink);line-height:1.65}
+  .card .apps{font-size:.8rem;color:var(--soft);line-height:1.7;margin-top:14px;padding-top:12px;border-top:1px dashed var(--line)}
+  .card .apps b{font-weight:800;color:var(--ink)}
+  .card.e .top{background:linear-gradient(135deg,var(--e),#e0694a)}
+  .card.a .top{background:linear-gradient(135deg,var(--a),#dba53a)}
+  .card.i .top{background:linear-gradient(135deg,var(--i),#2f9479)}
+  .card.m .top{background:linear-gradient(135deg,var(--m),#8260b3)}
+  .card.feature{grid-column:span 2}
+  .soon{margin-top:30px;color:var(--soft);font-size:.92rem}
 
-  /* ── 소개 ── */
-  .facts{list-style:none;padding:0;margin:0}
-  .facts li{padding:11px 0;border-bottom:1px solid var(--line);display:flex;gap:16px;font-size:.96rem}
-  .facts li b{flex:0 0 92px;color:var(--m);font-weight:800;font-size:.88rem;padding-top:2px}
-  .quote{border-left:3px solid var(--e);padding:4px 0 4px 18px;margin:26px 0;color:var(--soft);font-size:1.02rem}
-
-  /* ── 시작하기 ── */
-  #start h2{border-bottom-color:var(--a)}
-  .steps{list-style:none;padding:0;margin:0 0 34px;display:grid;grid-template-columns:repeat(3,1fr);gap:13px;counter-reset:st}
-  .steps li{counter-increment:st;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 18px 16px}
-  .steps li::before{content:counter(st);display:inline-flex;align-items:center;justify-content:center;
-    width:28px;height:28px;border-radius:50%;font-weight:800;font-size:.9rem;color:#fff;margin-bottom:10px}
+  /* 시작하기 */
+  .steps{list-style:none;padding:0;margin:0 0 40px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:st}
+  .steps li{counter-increment:st;background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px 22px 22px}
+  .steps li::before{content:counter(st);display:flex;align-items:center;justify-content:center;
+    width:44px;height:44px;border-radius:14px;font-weight:900;font-size:1.2rem;color:#fff;margin-bottom:16px}
   .steps li:nth-child(1)::before{background:var(--e)}
   .steps li:nth-child(2)::before{background:var(--a)}
   .steps li:nth-child(3)::before{background:var(--i)}
-  .steps .t{font-weight:800;letter-spacing:-.02em;margin-bottom:4px}
-  .steps .d{font-size:.88rem;color:var(--soft);line-height:1.6}
-  .safe{background:var(--i-bg);border:1px solid #c3ded4;border-radius:16px;padding:20px 22px}
-  .safe .t{font-weight:800;color:var(--i);margin-bottom:8px;letter-spacing:-.02em}
-  .safe ul{margin:0;padding-left:1.1em;font-size:.93rem}
-  .safe li{margin:3px 0}
-  .note{margin:16px 0 0;color:var(--soft);font-size:.85rem}
+  .steps .t{font-weight:900;font-size:1.1rem;letter-spacing:-.02em;margin-bottom:6px}
+  .steps .d{font-size:.9rem;color:var(--soft);line-height:1.65}
+  .safe{background:var(--i-bg);border-radius:22px;padding:26px 28px}
+  .safe .t{font-weight:900;font-size:1.1rem;color:var(--i);margin-bottom:10px;letter-spacing:-.02em}
+  .safe ul{margin:0;padding-left:1.1em;font-size:.95rem}
+  .safe li{margin:4px 0}
+  .note{margin:18px 0 0;color:var(--soft);font-size:.88rem}
 
-  footer{padding:46px 0 70px;border-top:1px solid var(--line);color:var(--soft);font-size:.88rem}
-  footer a{color:var(--soft)}
+  /* 소개 */
+  #about{background:var(--m-bg)}
+  .about{display:grid;grid-template-columns:260px 1fr;gap:44px;align-items:start}
+  .who .name{font-size:2.2rem;font-weight:900;letter-spacing:-.04em;line-height:1.2;color:var(--m)}
+  .who .role{color:var(--soft);margin-top:6px;font-size:.95rem}
+  .who .yrs{margin-top:22px;font-size:4.2rem;font-weight:900;line-height:1;letter-spacing:-.05em;color:var(--e)}
+  .who .yrs small{font-size:1rem;color:var(--soft);font-weight:700;margin-left:6px;letter-spacing:0}
+  .facts{list-style:none;padding:0;margin:0}
+  .facts li{padding:13px 0;border-bottom:1px solid #d9cdea;display:flex;gap:16px;font-size:.96rem}
+  .facts li b{flex:0 0 84px;color:var(--m);font-weight:800;font-size:.88rem;padding-top:2px}
+  .facts a{color:var(--ink)}
+  .closing{margin-top:28px}
+  .mail{display:inline-flex;margin-top:4px}
+  .btn.dark{background:var(--m);color:#fff}
+
+  footer{background:var(--night);color:rgba(255,255,255,.6);padding:44px 0 64px;font-size:.86rem}
+  footer a{color:rgba(255,255,255,.8)}
   footer p{margin:0 0 8px}
 
-  @media(max-width:560px){
-    .four{grid-template-columns:repeat(2,1fr)}
-    .scale{grid-template-columns:repeat(2,1fr)}
-    .scale div:nth-child(3){border-left:0}
-    .scale div:nth-child(n+3){border-top:1px solid var(--line)}
-    .steps{grid-template-columns:1fr}
-    nav ul{gap:14px;font-size:.85rem}
-    header.hero{padding:56px 0 46px}
+  /* 나타나기 */
+  .rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+  .rv.on{opacity:1;transform:none}
+
+  @media(max-width:900px){
+    .cards{grid-template-columns:repeat(2,1fr)}
+    #what .pillars{grid-template-columns:repeat(2,1fr)}
+    .about{grid-template-columns:1fr;gap:26px}
+  }
+  @media(max-width:640px){
+    .wrap{padding:0 18px}
+    nav ul{gap:14px;font-size:.84rem}
+    .hero{padding-top:120px}
+    .hero .eyebrow{font-size:.68rem;letter-spacing:.12em}
+    .axes,.scale{grid-template-columns:repeat(2,1fr)}
+    .axes{margin-top:44px}
+    .cards,.steps{grid-template-columns:1fr}
+    .card.feature{grid-column:auto}
+    section{padding:72px 0}
+    .waves{height:120px}
   }
   @media(max-width:380px){
     .wrap{padding:0 16px}
-    nav ul{gap:10px;font-size:.8rem}
+    nav ul{gap:10px;font-size:.78rem}
     nav .logo small{display:none}
-    .four{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .four .k{font-size:.66rem;letter-spacing:.02em}
+    .axes .k{font-size:.62rem;letter-spacing:.04em}
+    #what .pillars{grid-template-columns:1fr}
   }
   @media(prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
-    .card{transition:none}
-    .card:hover{transform:none}
+    .waves .w{animation:none}
+    .rv{opacity:1;transform:none;transition:none}
+    .card,.btn,.card .go{transition:none}
+    .card:hover,.btn:hover{transform:none}
   }
 </style>
 </head>
 <body>
 
-<nav>
+<nav id="nav">
   <div class="wrap">
-    <span class="logo">EAIM<small>에임</small></span>
+    <a class="logo" href="#top">EAIM<small>에임</small></a>
     <ul>
       <li><a href="#what">EAIM</a></li>
       <li><a href="#platforms">수업 플랫폼</a></li>
@@ -227,7 +268,7 @@
   </div>
 </nav>
 
-<header class="hero">
+<header class="hero" id="top">
   <div class="wrap">
     <p class="eyebrow">EMOTION · ARTSCAPE · INTERACTIVE · MUSICALIZATION</p>
     <h1>느끼고, 표현하고,<br>주고받고, <em>노래가 되는</em> 수업</h1>
@@ -235,34 +276,62 @@
       22년에 걸쳐 교실에서 만들어온 교육철학 에임(EAIM)과,
       그 철학으로 실제 수업에서 쓰이고 있는 교과 플랫폼 에임에듀입니다.
     </p>
+    <div class="cta">
+      <a class="btn main" href="#platforms">수업 플랫폼 둘러보기 <span aria-hidden="true">→</span></a>
+      <a class="btn ghost" href="#start">처음 쓰시는 선생님께</a>
+    </div>
 
-    <div class="four">
+    <div class="axes">
       <div><div class="k">EMOTION</div><div class="v">감성</div></div>
       <div><div class="k">ARTSCAPE</div><div class="v">예술</div></div>
       <div><div class="k">INTERACTIVE</div><div class="v">상호작용</div></div>
       <div><div class="k">MUSICALIZATION</div><div class="v">음악화</div></div>
     </div>
   </div>
+
+  <!-- 네 가지 축이 네 줄의 소리 물결로 흐른다 -->
+  <svg class="waves" viewBox="0 0 1200 170" preserveAspectRatio="none" aria-hidden="true">
+    <g class="w w1"><path stroke="#ff7a5c" d="M0 70 q50 -34 100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0"/></g>
+    <g class="w w2"><path stroke="#ffc94a" d="M0 92 q50 26 100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0"/></g>
+    <g class="w w3"><path stroke="#4fd1a8" d="M0 110 q100 -40 200 0 t200 0 t200 0 t200 0 t200 0 t200 0 t200 0 t200 0"/></g>
+    <g class="w w4"><path stroke="#b58cff" d="M0 128 q50 18 100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0"/></g>
+  </svg>
 </header>
+
+<div class="band">
+  <div class="wrap">
+    <div class="scale">
+      <div><div class="n" data-n="9">9</div><div class="l">교과 플랫폼</div></div>
+      <div><div class="n" data-n="77">77</div><div class="l">수업 앱</div></div>
+      <div><div class="n" data-n="353">353</div><div class="l">교과 학습 콘텐츠</div></div>
+      <div><div class="n" data-n="526">526</div><div class="l">웹 화면</div></div>
+    </div>
+  </div>
+</div>
 
 <section id="what">
   <div class="wrap">
-    <h2>에임(EAIM)이란</h2>
-    <p class="sub">교실에서 출발해 교실로 돌아오는 네 가지 축</p>
+    <p class="label rv">PHILOSOPHY</p>
+    <h2 class="rv">에임(EAIM)이란</h2>
+    <p class="sub rv">교실에서 출발해 교실로 돌아오는 네 가지 축</p>
 
-    <p>
-      아이가 먼저 <b>느끼고(Emotion)</b>, 그 느낌을 자기 방식으로 <b>표현하고(Artscape)</b>,
-      표현한 것을 다른 사람과 <b>주고받고(Interactive)</b>, 그 과정이 하나의
-      <b>노래처럼 남는 것(Musicalization)</b>. 이 네 가지가 한 수업 안에서 이어질 때
-      배움이 오래 남는다고 봅니다.
-    </p>
-    <p>
-      그래서 여기 있는 앱들은 지식을 전달하는 도구가 아니라,
-      아이가 무언가를 만들어 내놓고 그것이 누군가에게 가닿게 하는 자리로 만들어졌습니다.
-    </p>
+    <div class="pillars">
+      <div class="pillar rv"><div class="big">E</div><div class="t">느끼고</div><div class="d">아이가 먼저 느낍니다. Emotion</div></div>
+      <div class="pillar rv"><div class="big">A</div><div class="t">표현하고</div><div class="d">그 느낌을 자기 방식으로 표현합니다. Artscape</div></div>
+      <div class="pillar rv"><div class="big">I</div><div class="t">주고받고</div><div class="d">표현한 것을 다른 사람과 주고받습니다. Interactive</div></div>
+      <div class="pillar rv"><div class="big">M</div><div class="t">노래가 되는</div><div class="d">그 과정이 하나의 노래처럼 남습니다. Musicalization</div></div>
+    </div>
 
-    <blockquote class="quote">
-      기술이 아니라 아이가 먼저입니다. 화면이 해줄 수 있는 일과
+    <div class="narrow">
+      <p class="rv">
+        이 네 가지가 한 수업 안에서 이어질 때 배움이 오래 남는다고 봅니다.
+        그래서 여기 있는 앱들은 지식을 전달하는 도구가 아니라,
+        아이가 무언가를 만들어 내놓고 그것이 누군가에게 가닿게 하는 자리로 만들어졌습니다.
+      </p>
+    </div>
+
+    <blockquote class="quote rv">
+      기술이 아니라 <span>아이가 먼저</span>입니다. 화면이 해줄 수 있는 일과
       아이가 직접 해야 하는 일을 가르는 것이 설계의 첫 단계입니다.
     </blockquote>
   </div>
@@ -270,110 +339,113 @@
 
 <section id="platforms">
   <div class="wrap">
-    <h2>에임에듀 수업 플랫폼</h2>
-    <p class="sub">교사 계정으로 수업방을 열고, 학생은 QR로 들어옵니다. 앱은 모두 무료로 쓰실 수 있고, AI가 들어간 활동만 선생님 본인의 API 키로 씁니다.</p>
-
-    <div class="scale">
-      <div><div class="n">9</div><div class="l">교과 플랫폼</div></div>
-      <div><div class="n">77</div><div class="l">수업 앱</div></div>
-      <div><div class="n">353</div><div class="l">교과 학습 콘텐츠</div></div>
-      <div><div class="n">526</div><div class="l">웹 화면</div></div>
-    </div>
+    <p class="label rv">PLATFORMS</p>
+    <h2 class="rv">에임에듀 수업 플랫폼</h2>
+    <p class="sub rv">교사 계정으로 수업방을 열고, 학생은 QR로 들어옵니다. 앱은 모두 무료로 쓰실 수 있고, AI가 들어간 활동만 선생님 본인의 API 키로 씁니다.</p>
 
     <div class="cards">
-      <a class="card m" href="https://eaim-music.vercel.app" target="_blank" rel="noopener">
-        <div class="tag">음악</div>
-        <div class="nm">음악과 플랫폼</div>
-        <div class="ds">네 갈래로 갈라집니다. 대본부터 상영·홍보·평론까지 만드는 프로덕션, 감상을 그림·신문·편지로 남기는 미디어레터, 건반·밴드·리듬·관악·솔페지오 등 여덟 개 방을 갖춘 연주실, 우리 악기를 나눠 맡아 합주하는 국악실. 교사 가이드와 성취기준·루브릭까지.</div>
-        <div class="apps">
-          <b>프로덕션</b> 뮤지컬 메이커, 공연 상영관, 오디오 믹서, 홍보 포스터, 공연 평론<br>
-          <b>미디어레터</b> 미디어픽쳐, 감상 상영관<br>
-          <b>연주실</b> 건반실, 짝꿍 피아노실, 즉흥 작곡실, 이야기 작곡실, 밴드실, 리듬실, 솔페지오실, 관악실, 교사실<br>
-          <b>국악실</b> 대취타 합주 · <b>합주</b> 오케스트라
+      <a class="card m feature rv" href="https://eaim-music.vercel.app" target="_blank" rel="noopener">
+        <div class="top"><div class="tag">음악</div><div class="nm">음악과 플랫폼</div><span class="go" aria-hidden="true">→</span></div>
+        <div class="body">
+          <div class="ds">네 갈래로 갈라집니다. 대본부터 상영·홍보·평론까지 만드는 프로덕션, 감상을 그림·신문·편지로 남기는 미디어레터, 건반·밴드·리듬·관악·솔페지오 등 여덟 개 방을 갖춘 연주실, 우리 악기를 나눠 맡아 합주하는 국악실. 교사 가이드와 성취기준·루브릭까지.</div>
+          <div class="apps">
+            <b>프로덕션</b> 뮤지컬 메이커, 공연 상영관, 오디오 믹서, 홍보 포스터, 공연 평론<br>
+            <b>미디어레터</b> 미디어픽쳐, 감상 상영관<br>
+            <b>연주실</b> 건반실, 짝꿍 피아노실, 즉흥 작곡실, 이야기 작곡실, 밴드실, 리듬실, 솔페지오실, 관악실, 교사실<br>
+            <b>국악실</b> 대취타 합주 · <b>합주</b> 오케스트라
+          </div>
         </div>
       </a>
 
-      <a class="card i" href="https://eaim-science-lap.vercel.app" target="_blank" rel="noopener">
-        <div class="tag">과학</div>
-        <div class="nm">과학 놀이터</div>
-        <div class="ds">인체 기관계 지도, 토양층·바다층 탐사, 천문대 관측소. 중등과학 1·2 전 단원 인터랙티브와 자기점검실.</div>
-        <div class="apps">인체 탐험대, 지구 탐구, 천문대 관측소, 태양계 오디세이, 생활과학 공감톡, 생물 조직 단계, 과학 활동지</div>
-      </a>
-
-      <a class="card a" href="https://eaim-math.vercel.app" target="_blank" rel="noopener">
-        <div class="tag">수학</div>
-        <div class="nm">MATH LAB</div>
-        <div class="ds">낙하형 연산 퍼즐, 두더지, 카드 짝맞추기, 몬스터 배틀 등 연산 게임과 서술형 풀이 제출.</div>
-        <div class="apps">연산 테트리스, 연산 배틀, 연산 캐치, 두더지 잡기, 카드 짝맞추기, 수학 이야기 1~8, 교사 대시보드, 수학 활동지</div>
-      </a>
-
-      <a class="card e" href="https://eaim-social-history.vercel.app" target="_blank" rel="noopener">
-        <div class="tag">사회 · 역사</div>
-        <div class="nm">사회·역사 플랫폼</div>
-        <div class="ds">역사신문 만들기, 사회 용어사전, 세계 탐구, 실시간 용어 게임. 사회1·2, 역사1·2 전 단원 형성평가와 교사 대시보드까지.</div>
-        <div class="apps">역사 신문, 사회 용어사전, 사회 게임방, 세계 나라 탐구, 실시간 퀴즈 진행</div>
-      </a>
-
-      <a class="card e" href="https://eaim-english.vercel.app" target="_blank" rel="noopener">
-        <div class="tag">영어</div>
-        <div class="nm">영어 플랫폼</div>
-        <div class="ds">영어 놀이터, 게임방과 AI 회화, 영시 창작, 영어 작문, 영어 신문 만들기.</div>
-        <div class="apps">영어 문장 놀이터, 영어 게임방, 영어 시, 영어 작문, 영어 신문</div>
-      </a>
-
-      <a class="card e" href="https://eaim-korean-play.vercel.app" target="_blank" rel="noopener">
-        <div class="tag">국어</div>
-        <div class="nm">국어 플레이</div>
-        <div class="ds">읽고 쓰고 말하는 국어 활동을 놀이로 바꾼 수업 도구.</div>
-        <div class="apps">국어 어휘 게임방, 국어 신문, 감정 시인, 국어 작문</div>
-      </a>
-
-      <a class="card i" href="https://eaim-care.vercel.app" target="_blank" rel="noopener">
-        <div class="tag">창체 · 다문화</div>
-        <div class="nm">에임 케어</div>
-        <div class="ds">마음 트랙과 한국어 트랙. 감정·가치를 다루는 활동과, 한국어를 배우는 학생을 위한 수업방.</div>
-        <div class="apps">감정 이야기, 기분 맞추기, 마음 온도계, 둥근 말하기, 생활 행동 질문, 마이 바이브 런웨이, 한글 편지, 한국어 문장 놀이터</div>
-      </a>
-
-      <a class="card a" href="https://eaim-physical-play.vercel.app" target="_blank" rel="noopener">
-        <div class="tag">체육</div>
-        <div class="nm">체육 플레이</div>
-        <div class="ds">리듬에 맞춰 몸을 움직이는 활동부터 수업 운영까지. 기록 측정과 팀 편성·리그, 서킷 타이머 같은 운영 도구와 동작 분석 슬로우 캠, 전술 보드, 심판 판정 퀴즈, 가슴압박 박자 연습까지 갖췄습니다. 음악과 체육을 이어 붙인 수업방입니다.</div>
-        <div class="apps">
-          <b>수업 운영</b> 기록 측정, 팀 편성·학급 리그, 서킷 트레이닝 타이머<br>
-          <b>리듬과 움직임</b> 비트 &amp; 바스켓, 스트레칭 따라하기, 리듬 포즈 게임, 창작 안무 만들기, 동작 분석 슬로우 캠<br>
-          <b>이해와 안전</b> 전술 보드, 심판 판정 퀴즈, 가슴압박 박자 연습<br>
-          <b>건강 관리</b> 건강체력 자기관리
+      <a class="card i rv" href="https://eaim-science-lap.vercel.app" target="_blank" rel="noopener">
+        <div class="top"><div class="tag">과학</div><div class="nm">과학 놀이터</div><span class="go" aria-hidden="true">→</span></div>
+        <div class="body">
+          <div class="ds">인체 기관계 지도, 토양층·바다층 탐사, 천문대 관측소. 중등과학 1·2 전 단원 인터랙티브와 자기점검실.</div>
+          <div class="apps">인체 탐험대, 지구 탐구, 천문대 관측소, 태양계 오디세이, 생활과학 공감톡, 생물 조직 단계, 과학 활동지</div>
         </div>
       </a>
 
-      <a class="card m" href="https://eaimfairytale.vercel.app" target="_blank" rel="noopener">
-        <div class="tag">유아 · 초등</div>
-        <div class="nm">뮤니의 동화마을</div>
-        <div class="ds">뮤니와 함께 나만의 동화를 만들고 서재에 모으는 곳. 음악 선생님이 들려주는 명작동화를 누구나 무료로 보고 듣는 뮤니 도서관도 있어요. 한국어·영어.</div>
-        <div class="apps">이야기동화, 배움동화, 뮤니의 서재, 뮤니 도서관(무료 명작동화·영상)</div>
+      <a class="card a rv" href="https://eaim-math.vercel.app" target="_blank" rel="noopener">
+        <div class="top"><div class="tag">수학</div><div class="nm">MATH LAB</div><span class="go" aria-hidden="true">→</span></div>
+        <div class="body">
+          <div class="ds">낙하형 연산 퍼즐, 두더지, 카드 짝맞추기, 몬스터 배틀 등 연산 게임과 서술형 풀이 제출.</div>
+          <div class="apps">연산 테트리스, 연산 배틀, 연산 캐치, 두더지 잡기, 카드 짝맞추기, 수학 이야기 1~8, 교사 대시보드, 수학 활동지</div>
+        </div>
       </a>
 
-      <a class="card a" href="https://book-publisher.vercel.app" target="_blank" rel="noopener">
-        <div class="tag">출판</div>
-        <div class="nm">Publoo</div>
-        <div class="ds">학생 글과 그림을 모아 한 권의 책으로 엮는 출판 도구. 뮤지컬 그림책과 학급 문집을 이걸로 만듭니다.</div>
-        <div class="apps">Publoo 출판앱</div>
+      <a class="card e rv" href="https://eaim-social-history.vercel.app" target="_blank" rel="noopener">
+        <div class="top"><div class="tag">사회 · 역사</div><div class="nm">사회·역사 플랫폼</div><span class="go" aria-hidden="true">→</span></div>
+        <div class="body">
+          <div class="ds">역사신문 만들기, 사회 용어사전, 세계 탐구, 실시간 용어 게임. 사회1·2, 역사1·2 전 단원 형성평가와 교사 대시보드까지.</div>
+          <div class="apps">역사 신문, 사회 용어사전, 사회 게임방, 세계 나라 탐구, 실시간 퀴즈 진행</div>
+        </div>
+      </a>
+
+      <a class="card m rv" href="https://eaim-english.vercel.app" target="_blank" rel="noopener">
+        <div class="top"><div class="tag">영어</div><div class="nm">영어 플랫폼</div><span class="go" aria-hidden="true">→</span></div>
+        <div class="body">
+          <div class="ds">영어 놀이터, 게임방과 AI 회화, 영시 창작, 영어 작문, 영어 신문 만들기.</div>
+          <div class="apps">영어 문장 놀이터, 영어 게임방, 영어 시, 영어 작문, 영어 신문</div>
+        </div>
+      </a>
+
+      <a class="card e rv" href="https://eaim-korean-play.vercel.app" target="_blank" rel="noopener">
+        <div class="top"><div class="tag">국어</div><div class="nm">국어 플레이</div><span class="go" aria-hidden="true">→</span></div>
+        <div class="body">
+          <div class="ds">읽고 쓰고 말하는 국어 활동을 놀이로 바꾼 수업 도구.</div>
+          <div class="apps">국어 어휘 게임방, 국어 신문, 감정 시인, 국어 작문</div>
+        </div>
+      </a>
+
+      <a class="card i rv" href="https://eaim-care.vercel.app" target="_blank" rel="noopener">
+        <div class="top"><div class="tag">창체 · 다문화</div><div class="nm">에임 케어</div><span class="go" aria-hidden="true">→</span></div>
+        <div class="body">
+          <div class="ds">마음 트랙과 한국어 트랙. 감정·가치를 다루는 활동과, 한국어를 배우는 학생을 위한 수업방.</div>
+          <div class="apps">감정 이야기, 기분 맞추기, 마음 온도계, 둥근 말하기, 생활 행동 질문, 마이 바이브 런웨이, 한글 편지, 한국어 문장 놀이터</div>
+        </div>
+      </a>
+
+
+      <a class="card m rv" href="https://eaimfairytale.vercel.app" target="_blank" rel="noopener">
+        <div class="top"><div class="tag">유아 · 초등</div><div class="nm">뮤니의 동화마을</div><span class="go" aria-hidden="true">→</span></div>
+        <div class="body">
+          <div class="ds">뮤니와 함께 나만의 동화를 만들고 서재에 모으는 곳. 음악 선생님이 들려주는 명작동화를 누구나 무료로 보고 듣는 뮤니 도서관도 있어요. 한국어·영어.</div>
+          <div class="apps">이야기동화, 배움동화, 뮤니의 서재, 뮤니 도서관(무료 명작동화·영상)</div>
+        </div>
+      </a>
+      <a class="card a feature rv" href="https://eaim-physical-play.vercel.app" target="_blank" rel="noopener">
+        <div class="top"><div class="tag">체육</div><div class="nm">체육 플레이</div><span class="go" aria-hidden="true">→</span></div>
+        <div class="body">
+          <div class="ds">리듬에 맞춰 몸을 움직이는 활동부터 수업 운영까지. 기록 측정과 팀 편성·리그, 서킷 타이머 같은 운영 도구와 동작 분석 슬로우 캠, 전술 보드, 심판 판정 퀴즈, 가슴압박 박자 연습까지 갖췄습니다. 음악과 체육을 이어 붙인 수업방입니다.</div>
+          <div class="apps">
+            <b>수업 운영</b> 기록 측정, 팀 편성·학급 리그, 서킷 트레이닝 타이머<br>
+            <b>리듬과 움직임</b> 비트 &amp; 바스켓, 스트레칭 따라하기, 리듬 포즈 게임, 창작 안무 만들기, 동작 분석 슬로우 캠<br>
+            <b>이해와 안전</b> 전술 보드, 심판 판정 퀴즈, 가슴압박 박자 연습<br>
+            <b>건강 관리</b> 건강체력 자기관리
+          </div>
+        </div>
+      </a>
+
+      <a class="card e rv" href="https://book-publisher.vercel.app" target="_blank" rel="noopener">
+        <div class="top"><div class="tag">출판</div><div class="nm">Publoo</div><span class="go" aria-hidden="true">→</span></div>
+        <div class="body">
+          <div class="ds">학생 글과 그림을 모아 한 권의 책으로 엮는 출판 도구. 뮤지컬 그림책과 학급 문집을 이걸로 만듭니다.</div>
+          <div class="apps">Publoo 출판앱</div>
+        </div>
       </a>
     </div>
 
-    <p style="margin-top:26px;color:var(--soft);font-size:.9rem">
-      도덕과 가정 플랫폼을 준비하고 있습니다.
-    </p>
+    <p class="soon rv">도덕과 가정 플랫폼을 준비하고 있습니다.</p>
   </div>
 </section>
 
 <section id="start">
   <div class="wrap">
-    <h2>처음 쓰시는 선생님께</h2>
-    <p class="sub">교사는 구글 로그인만, 학생은 가입 없이 QR로 바로 들어옵니다.</p>
+    <p class="label rv">GET STARTED</p>
+    <h2 class="rv">처음 쓰시는 선생님께</h2>
+    <p class="sub rv">교사는 구글 로그인만, 학생은 가입 없이 QR로 바로 들어옵니다.</p>
 
-    <ol class="steps">
+    <ol class="steps rv">
       <li>
         <div class="t">교사 로그인</div>
         <div class="d">위에서 교과 플랫폼을 골라 들어가, 구글 계정으로 교사 로그인을 합니다.</div>
@@ -388,7 +460,7 @@
       </li>
     </ol>
 
-    <div class="safe">
+    <div class="safe rv">
       <div class="t">학생 개인정보는 이렇게 지킵니다</div>
       <ul>
         <li>학생은 회원가입을 하지 않고, 학생 계정도 만들지 않습니다.</li>
@@ -405,33 +477,36 @@
 
 <section id="about">
   <div class="wrap">
-    <h2>소개</h2>
-    <p class="sub">박성애</p>
-
-    <ul class="facts">
-      <li><b>현직</b><span>경북 경산 소재 중학교 음악교사</span></li>
-      <li><b>경력</b><span>35년차. 교실에서 수업하며 에임(EAIM)을 만들어왔습니다.</span></li>
-      <li><b>연구회</b><span>EAIM 창작미디어음악 교사연구회 대표 (교육부 학교예술교육 교사연구회)</span></li>
-      <li><b>저서</b><span>『코딩은 몰라요 — AI한테 물었더니 앱이 됐다』</span></li>
-      <li><b>만든 것</b><span>에임(EAIM) 교육철학, 뮤토니즈(Mutoniz) 어린이 IP, 교과 플랫폼 아홉 종</span></li>
-      <li><b>만나는 곳</b><span>
-        <a href="https://www.youtube.com/@MutonizWorld" target="_blank" rel="noopener">뮤토니즈월드 (유튜브)</a> ·
-        <a href="https://www.youtube.com/@MutonizEnglish" target="_blank" rel="noopener">MUTONIZ WORLD English</a> ·
-        <a href="https://www.youtube.com/@eaim_studio" target="_blank" rel="noopener">에임히어로즈 (유튜브)</a> ·
-        <a href="https://www.instagram.com/eaim_studio/" target="_blank" rel="noopener">인스타그램 @eaim_studio</a> ·
-        <a href="https://eaimfairytale.vercel.app/muni-library/" target="_blank" rel="noopener">뮤니 도서관 (무료 동화)</a>
-      </span></li>
-    </ul>
-
-    <p style="margin-top:26px">
-      음악 수업에서 시작한 에임(EAIM)을 여러 교과로 넓혀,
-      각 교과 선생님들이 수업에서 바로 쓰실 수 있도록 만들어 무료로 열어 두었습니다.
-      쓰시다 불편한 점이나 고쳤으면 하는 부분이 있으면 알려주세요.
-    </p>
-
-    <p style="margin-top:6px">
-      <b>문의</b> <a href="mailto:asdtt354@gmail.com?subject=%5BEAIM%5D%20%EB%AC%B8%EC%9D%98%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4">asdtt354@gmail.com</a>
-    </p>
+    <p class="label rv">ABOUT</p>
+    <h2 class="rv">만든 사람</h2>
+    <div class="about">
+      <div class="who rv">
+        <div class="name">박성애</div>
+        <div class="role">경북 경산 소재 중학교 음악교사</div>
+        <div class="yrs">35<small>년차 교사</small></div>
+      </div>
+      <div class="rv">
+        <ul class="facts">
+          <li><b>경력</b><span>35년차. 교실에서 수업하며 에임(EAIM)을 만들어왔습니다.</span></li>
+          <li><b>연구회</b><span>EAIM 창작미디어음악 교사연구회 대표 (교육부 학교예술교육 교사연구회)</span></li>
+          <li><b>저서</b><span>『코딩은 몰라요 — AI한테 물었더니 앱이 됐다』</span></li>
+          <li><b>만든 것</b><span>에임(EAIM) 교육철학, 뮤토니즈(Mutoniz) 어린이 IP, 교과 플랫폼 아홉 종</span></li>
+          <li><b>만나는 곳</b><span>
+            <a href="https://www.youtube.com/@MutonizWorld" target="_blank" rel="noopener">뮤토니즈월드 (유튜브)</a> ·
+            <a href="https://www.youtube.com/@MutonizEnglish" target="_blank" rel="noopener">MUTONIZ WORLD English</a> ·
+            <a href="https://www.youtube.com/@eaim_studio" target="_blank" rel="noopener">에임히어로즈 (유튜브)</a> ·
+            <a href="https://www.instagram.com/eaim_studio/" target="_blank" rel="noopener">인스타그램 @eaim_studio</a> ·
+            <a href="https://eaimfairytale.vercel.app/muni-library/" target="_blank" rel="noopener">뮤니 도서관 (무료 동화)</a>
+          </span></li>
+        </ul>
+        <p class="closing">
+          음악 수업에서 시작한 에임(EAIM)을 여러 교과로 넓혀,
+          각 교과 선생님들이 수업에서 바로 쓰실 수 있도록 만들어 무료로 열어 두었습니다.
+          쓰시다 불편한 점이나 고쳤으면 하는 부분이 있으면 알려주세요.
+        </p>
+        <a class="btn dark mail" href="mailto:asdtt354@gmail.com?subject=%5BEAIM%5D%20%EB%AC%B8%EC%9D%98%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4">문의하기 · asdtt354@gmail.com</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -440,13 +515,46 @@
     <p>에임 EAIM · 에임에듀 · <a href="https://eaim.kr/">eaim.kr</a> · 박성애 ·
       <a href="mailto:asdtt354@gmail.com?subject=%5BEAIM%5D%20%EB%AC%B8%EC%9D%98%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4">asdtt354@gmail.com</a> ·
       <a href="https://github.com/asdtt354-stack" target="_blank" rel="noopener">GitHub</a></p>
-    <p style="font-size:.82rem">
+    <p style="font-size:.8rem">
       집계 기준 — 학생이나 교사가 직접 들어가 쓰는 화면을 앱 1개로 셉니다.
       교과서 차시 학습페이지 209개와 자가점검방 144개를 합해 교과 학습 콘텐츠 353개,
       허브·안내 화면까지 더한 웹 화면 전체가 526개입니다.
     </p>
   </div>
 </footer>
+
+<script>
+(function(){
+  // 메뉴: 표지를 지나면 밝은 바탕으로
+  var nav=document.getElementById('nav'), hero=document.getElementById('top');
+  function onScroll(){ nav.classList.toggle('solid', window.scrollY > hero.offsetHeight - 80); }
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+  var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = document.querySelectorAll('.rv');
+  if (still || !('IntersectionObserver' in window)) { els.forEach(function(e){e.classList.add('on')}); }
+  else {
+    var io = new IntersectionObserver(function(list){
+      list.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add('on'); io.unobserve(x.target); } });
+    }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(e){ io.observe(e); });
+  }
+
+  // 숫자 띠: 화면에 들어오면 0부터 세어 올라감
+  if (!still && 'IntersectionObserver' in window) {
+    var nums = document.querySelectorAll('.scale .n');
+    var io2 = new IntersectionObserver(function(list){
+      list.forEach(function(x){
+        if(!x.isIntersecting) return; io2.unobserve(x.target);
+        var el=x.target, end=+el.getAttribute('data-n'), t0=null;
+        function step(t){ if(!t0) t0=t; var p=Math.min((t-t0)/1200,1); el.textContent=Math.round(end*(1-Math.pow(1-p,3))); if(p<1) requestAnimationFrame(step); }
+        requestAnimationFrame(step);
+      });
+    }, {threshold:.5});
+    nums.forEach(function(n){ io2.observe(n); });
+  }
+})();
+</script>
 
 </body>
 </html>
