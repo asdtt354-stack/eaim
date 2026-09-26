@@ -114,13 +114,6 @@
   .btn.ghost{color:#fff;border:1.5px solid rgba(255,255,255,.35)}
   .btn.ghost:hover{background:rgba(255,255,255,.08)}
 
-  .axes{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:64px;position:relative;z-index:2}
-  .axes>div{padding:16px 16px 14px;border-radius:16px;background:rgba(255,255,255,.06);
-    border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(4px)}
-  .axes .k{font-size:.72rem;font-weight:800;letter-spacing:.1em}
-  .axes .v{font-size:1.2rem;font-weight:900;margin-top:2px}
-  .axes>div:nth-child(1) .k{color:var(--e2)} .axes>div:nth-child(2) .k{color:var(--a2)}
-  .axes>div:nth-child(3) .k{color:var(--i2)} .axes>div:nth-child(4) .k{color:var(--m2)}
 
   .waves{display:block;width:100%;height:170px;margin-top:-30px}
   .waves path{fill:none;stroke-width:2.6;stroke-linecap:round;opacity:.9}
@@ -128,14 +121,14 @@
   .waves .w2{animation-duration:12s} .waves .w3{animation-duration:15s} .waves .w4{animation-duration:11s}
   @keyframes flow{from{transform:translateX(0)}to{transform:translateX(-400px)}}
 
-  /* ── 숫자 띠 ── */
-  .band{background:var(--night2);color:#fff;padding:0 0 56px}
-  .scale{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-  .scale>div{padding:6px 4px}
-  .scale .n{font-weight:900;font-size:clamp(2.2rem,5.4vw,3.4rem);letter-spacing:-.04em;line-height:1}
+  /* ── 표지 안 숫자 ── */
+  .scale{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:56px;position:relative;z-index:2}
+  .scale>div{padding:18px 18px 16px;border-radius:18px;background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(4px)}
+  .scale .n{font-weight:900;font-size:clamp(2rem,4.6vw,3.1rem);letter-spacing:-.04em;line-height:1}
   .scale>div:nth-child(1) .n{color:var(--e2)} .scale>div:nth-child(2) .n{color:var(--a2)}
   .scale>div:nth-child(3) .n{color:var(--i2)} .scale>div:nth-child(4) .n{color:var(--m2)}
-  .scale .l{font-size:.86rem;color:rgba(255,255,255,.66);margin-top:8px}
+  .scale .l{font-size:.86rem;color:rgba(255,255,255,.72);margin-top:8px;font-weight:600}
 
   /* ── 절 ── */
   section{padding:96px 0;scroll-margin-top:40px}
@@ -231,8 +224,10 @@
     nav ul{gap:14px;font-size:.84rem}
     .hero{padding-top:120px}
     .hero .eyebrow{font-size:.68rem;letter-spacing:.12em}
-    .axes,.scale{grid-template-columns:repeat(2,1fr)}
-    .axes{margin-top:44px}
+    .scale{grid-template-columns:repeat(2,1fr);gap:10px;margin-top:34px}
+    .scale>div{padding:14px 14px 12px}
+    .cta{margin-top:26px}
+    .btn{padding:12px 18px;font-size:.92rem}
     .cards,.steps{grid-template-columns:1fr}
     .card.feature{grid-column:auto}
     section{padding:72px 0}
@@ -242,7 +237,6 @@
     .wrap{padding:0 16px}
     nav ul{gap:10px;font-size:.78rem}
     nav .logo small{display:none}
-    .axes .k{font-size:.62rem;letter-spacing:.04em}
     #what .pillars{grid-template-columns:1fr}
   }
   @media(prefers-reduced-motion:reduce){
@@ -281,11 +275,11 @@
       <a class="btn ghost" href="#start">처음 쓰시는 선생님께</a>
     </div>
 
-    <div class="axes">
-      <div><div class="k">EMOTION</div><div class="v">감성</div></div>
-      <div><div class="k">ARTSCAPE</div><div class="v">예술</div></div>
-      <div><div class="k">INTERACTIVE</div><div class="v">상호작용</div></div>
-      <div><div class="k">MUSICALIZATION</div><div class="v">음악화</div></div>
+    <div class="scale" aria-label="에임에듀 규모">
+      <div><div class="n" data-n="10">10</div><div class="l">플랫폼</div></div>
+      <div><div class="n" data-n="73">73</div><div class="l">수업 앱</div></div>
+      <div><div class="n" data-n="313">313</div><div class="l">교과 학습 콘텐츠</div></div>
+      <div><div class="n" data-n="496">496</div><div class="l">웹 화면</div></div>
     </div>
   </div>
 
@@ -298,16 +292,6 @@
   </svg>
 </header>
 
-<div class="band">
-  <div class="wrap">
-    <div class="scale">
-      <div><div class="n" data-n="10">10</div><div class="l">플랫폼</div></div>
-      <div><div class="n" data-n="73">73</div><div class="l">수업 앱</div></div>
-      <div><div class="n" data-n="313">313</div><div class="l">교과 학습 콘텐츠</div></div>
-      <div><div class="n" data-n="496">496</div><div class="l">웹 화면</div></div>
-    </div>
-  </div>
-</div>
 
 <section id="what">
   <div class="wrap">
